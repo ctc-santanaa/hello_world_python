@@ -1,0 +1,27 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "DevEnv Container Build",
+            "type": "shell",
+            "command": "docker build ${workspaceFolder} --file DevEnv.Dockerfile --tag abd/devexp/devenv:1.0",
+            "group": "build"
+        },
+        {
+            "label": "ProdDeploy Container Build",
+            "type": "shell",
+            "command": "docker build ${workspaceFolder} --file ProdDeploy.Dockerfile --tag abd/devexp/proddeploy:1.0",
+            "group": "build"        },
+        {
+            "label": "Build",
+            "dependsOrder": "sequence",
+            "dependsOn": ["DevEnv Container Build", "ProdDeploy Container Build"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
