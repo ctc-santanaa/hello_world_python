@@ -1,7 +1,4 @@
-FROM frolvlad/alpine-miniconda3
-
-RUN echo "Install python packages" \
-   && pip install -r requirements.txt
+FROM abd/devexp/devenv:1.0
 
 ENV app_dir /py_app
 
