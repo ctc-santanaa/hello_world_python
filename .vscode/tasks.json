@@ -13,15 +13,19 @@
             "label": "ProdDeploy Container Build",
             "type": "shell",
             "command": "docker build ${workspaceFolder} --file ProdDeploy.Dockerfile --tag abd/devexp/proddeploy:1.0",
-            "group": "build"        },
+            "group": "build"
+        },
         {
             "label": "Build",
             "dependsOrder": "sequence",
             "dependsOn": ["DevEnv Container Build", "ProdDeploy Container Build"],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
+            "group": "build"        },
+        {
+            "label": "Publish Containers",
+            "type": "shell",
+            "dependsOn": ["Build"],
+            "command": "docker tag abd/devexp/proddeploy:1.0 codewala/devexperience:python && docker push codewala/devexperience",
+            "group": "build"
         }
     ]
 }
