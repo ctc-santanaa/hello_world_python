@@ -2,7 +2,7 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.101.0/containers/ubuntu-18.04-git
 {
 	"name": "Ubuntu 18.04 with Python",
-	"dockerFile": "DevEnv.Dockerfile",
+	"dockerFile": "../DevEnv.Dockerfile",
 
 	// Sets the run context to one level up instead of the .devcontainer folder.
 	"context": "..",
