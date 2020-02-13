@@ -10,3 +10,5 @@ RUN mkdir ${app_dir}/logs
 RUN echo "export PYTHONPATH=${app_dir}/" >> ~/.bashrc
 
 COPY . ${app_dir}/
+
+CMD ["python", "scripts/hello.py"]

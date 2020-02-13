@@ -91,6 +91,9 @@ COPY requirements.txt .
 RUN echo "Install python packages" \
    && pip install -r requirements.txt
 
+RUN echo "Allow docker in docker build commands to run" \
+    && apt-get install -y docker.io
+
 RUN echo "Helpful for interactive container shells" \
     && echo "set -o vi" >> ~/.bashrc \
     && echo "export EDITOR=vi" >> ~/.bashrc
